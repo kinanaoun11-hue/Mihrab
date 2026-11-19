@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Cairo", system-ui, -apple-system, sans-serif;
+  --font-quran: "Amiri", Georgia, serif;
+  --color-obsidian: #0A0A0C;
+  --color-emerald-accent: #10B981;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    background-color: #0A0A0C;
+    color: #F4F4F5;
+    scroll-behavior: smooth;
+  }
+
+  /* Custom subtle dark scrollbar */
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0A0A0C;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(16, 185, 129, 0.45);
+  }
+}
+
+.font-quran {
+  font-family: var(--font-quran);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Safe area padding for iOS PWAs */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* GPU-accelerated micro-animations (transform & opacity only) */
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 8px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes sheetEnter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes ambientBreathe {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(0.985);
+  }
+  50% {
+    opacity: 0.72;
+    transform: scale(1.025);
+  }
+}
+
+@keyframes tasbihPop {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-page-enter {
+  animation: pageEnter 250ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-sheet-enter {
+  animation: sheetEnter 250ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-ambient-breathe {
+  animation: ambientBreathe 4.5s ease-in-out infinite;
+}
+
+.animate-tasbih-pop {
+  animation: tasbihPop 180ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-page-enter,
+  .animate-sheet-enter,
+  .animate-ambient-breathe,
+  .animate-tasbih-pop {
+    animation: none !important;
+  }
+}

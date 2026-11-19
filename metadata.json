@@ -1,0 +1,10 @@
+{
+  "name": "Remix محراب — القرآن والأذكار ومواقيت الصلاة",
+  "description": "تطبيق إسلامي شامل يعمل دون اتصال بالإنترنت لقراءة القرآن الكريم وتفسيره، الاستماع لأشهر القراء مع أصوات الطبيعة، مواقيت الصلاة والقبلة، حصن المسلم، والمسبحة الإلكترونية.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
